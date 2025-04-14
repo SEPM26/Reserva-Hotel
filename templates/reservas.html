@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reservas - Hotel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="reservas-container">
+    <h1>Reservar Habitación</h1>
+
+    <form id="reserva-form">
+      <input type="text" id="cliente" placeholder="Nombre del Cliente" required>
+      <input type="text" id="habitacion" placeholder="Número de Habitación" required>
+      <input type="date" id="fecha" required>
+      <button type="submit">Guardar Reserva</button>
+    </form>
+
+  
+
+    <a href="/dashboard" class="volver-btn">← Volver al Dashboard</a>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <!-- Script JS personalizado -->
+  <script src="{{ url_for('static', filename='reserva.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Hotel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Barra lateral -->
+   
+<div class="sidebar">
+    <h2>Hotel Dashboard</h2>
+    <ul>
+      <li><a href="{{ url_for('reservas') }}">Reservas</a></li>
+      <li><a href="#">Clientes</a></li>
+      <li><a href="#">Habitaciones</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+    </ul>      
+  </div>
+   
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <header>
+      <h1>Bienvenido al Dashboard del Hotel</h1>
+      <p>Gestiona las reservas, clientes y servicios de tu hotel aquí.</p>
+    </header>
+
+    <!-- Sección con las tarjetas de información -->
+    <section class="dashboard-section">
+      <div class="card">
+        <h3>Reservas</h3>
+        <p>Gestiona las reservas de los clientes.</p>
+      </div>
+      <div class="card">
+        <h3>Clientes</h3>
+        <p>Gestiona la información de los clientes.</p>
+      </div>
+      <div class="card">
+        <h3>Habitaciones</h3>
+        <p>Administrar las habitaciones disponibles.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

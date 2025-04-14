@@ -1,0 +1,263 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: #1877f2;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #145dd1;
+}
+
+#message {
+    color: red;
+    margin-top: 10px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  /* Barra lateral */
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidebar h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #007bff;
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Encabezado del Dashboard */
+  header {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  /* Sección con los bloques de información (Reservas, Clientes, Habitaciones) */
+  .dashboard-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;  /* Hace que los elementos se ajusten si el espacio es pequeño */
+  }
+  
+  .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+  
+  /* Estilo para el formulario de logout, asegurar que esté alineado correctamente */
+  .logout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Estilos Responsivos */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+  
+    .main-content {
+      margin-left: 200px;
+    }
+  
+    .dashboard-section {
+      flex-direction: column;
+    }
+  
+    .card {
+      width: 100%;
+    }
+  }
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .reservas-container {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .reservas-container h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #reserva-form input, #reserva-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #reserva-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #reserva-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  #lista-reservas {
+    margin-top: 30px;
+  }
+  
+  #lista-reservas ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #lista-reservas li {
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .volver-btn {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
