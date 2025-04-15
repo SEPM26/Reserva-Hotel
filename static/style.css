@@ -210,7 +210,7 @@ button:hover {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(177, 44, 44, 0.1);
   }
   
   .reservas-container h1, h2 {
@@ -260,4 +260,4 @@ button:hover {
     text-decoration: none;
     color: #007bff;
   }
-  
+

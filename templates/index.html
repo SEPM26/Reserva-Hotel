@@ -5,6 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Fondo bonito en negro con gradiente */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #0f0f0f);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #login-register-container {
+            background: #1f1f1f;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            width: 320px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: #2a2a2a;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00c6ff;
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #00c6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div id="login-register-container">
@@ -19,9 +94,5 @@
             <p>¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></p>
         </div>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
