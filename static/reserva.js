@@ -21,12 +21,17 @@ const firebaseConfig = {
     const cliente = document.getElementById("cliente").value;
     const habitacion = document.getElementById("habitacion").value;
     const fecha = document.getElementById("fecha").value;
+    const hora = document.getElementById("hora").value;
+    const costo = document.getElementById("costo").value;
+
   
     const nuevaReservaRef = database.ref("reservas").push();
     nuevaReservaRef.set({
       cliente: cliente,
       habitacion: habitacion,
-      fecha: fecha
+      fecha: fecha,
+      hora: hora,
+      costo: costo
     }).then(() => {
       alert("Reserva guardada correctamente");
       document.getElementById("reserva-form").reset();

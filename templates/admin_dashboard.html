@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador - Hotel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #1e3d59;
+      padding-top: 40px;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      display: block;
+      font-size: 18px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .content {
+      margin-left: 260px;
+      padding: 30px;
+    }
+
+    .welcome-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .header-title {
+      color: #1e3d59;
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="brand-title">🏨 Hotel Admin</div>
+    <a href="{{ url_for('admin_dashboard') }}">🏠 Dashboard</a>
+    <a href="{{ url_for('admin_reservas') }}">📋 Reservas</a>
+    <a href="{{ url_for('logout') }}">🚪 Cerrar Sesión</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <div class="welcome-card">
+      <h2 class="header-title mb-3">Bienvenido, Administrador</h2>
+      <p class="lead">Este es el panel principal de gestión del hotel. Desde aquí puedes monitorear y controlar las actividades realizadas por el personal del hotel.</p>
+      <hr>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Reservas Totales</h5>
+              <p class="card-text">🛏️ Revisa todas las reservas creadas por recepcionistas.</p>
+              <a href="{{ url_for('admin_reservas') }}" class="btn btn-light">Ver Reservas</a>
+            </div>
+          </div>
+        </div>
+        <!-- Puedes agregar más paneles aquí -->
+        <div class="col-md-4">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Usuarios Registrados</h5>
+              <p class="card-text">👤 Control de accesos y gestión de cuentas.</p>
+              <a href="#" class="btn btn-light disabled">Ver Usuarios</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Reportes</h5>
+              <p class="card-text">📊 Próximamente: estadísticas y desempeño.</p>
+              <a href="#" class="btn btn-light disabled">Ver Reportes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
