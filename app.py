@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import pyrebase
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'clave-secreta-segura'  # Necesaria para manejar la sesión
@@ -79,17 +80,38 @@ def admin_reservas():
         reservas = db.child("reservas").get().val()
 
         conteo_por_fecha = {}
+        ingreso_por_fecha = {}  # Diccionario para almacenar el ingreso por fecha
         lista_reservas = []
+        ingreso_total_dia = 0  # Inicializar el total de ingresos del día
+
+        fecha_actual = datetime.now().strftime("%Y-%m-%d")  # Obtener la fecha actual en formato YYYY-MM-DD
 
         if reservas:
             for id_reserva, datos in reservas.items():
                 datos['id'] = id_reserva
                 lista_reservas.append(datos)
                 fecha = datos.get("fecha")
+                precio_str = datos.get("precio", "0").replace("$", "").replace(",", "").strip()  # Limpiar y convertir el precio
+
+                try:
+                    precio = float(precio_str)  # Convertir a float para poder sumar
+                except ValueError:
+                    precio = 0  # Si no se puede convertir, asignar 0
+
+                # Contar reservas por fecha
                 if fecha:
                     conteo_por_fecha[fecha] = conteo_por_fecha.get(fecha, 0) + 1
 
-        return render_template('admin_reservas.html', reservas=lista_reservas, conteo_por_fecha=conteo_por_fecha)
+                    # Sumar el precio al ingreso por fecha
+                    ingreso_por_fecha[fecha] = ingreso_por_fecha.get(fecha, 0) + precio
+
+                    # Solo sumar el precio si la reserva es del día actual
+                    if fecha == fecha_actual:
+                        ingreso_total_dia += precio
+
+        # Pasar el ingreso total del día y el ingreso por fecha al template
+        return render_template('admin_reservas.html', reservas=lista_reservas, conteo_por_fecha=conteo_por_fecha, ingreso_total=ingreso_total_dia, ingreso_por_fecha=ingreso_por_fecha)
+
     return redirect(url_for('index'))
 
 # Dashboard para recepcionista

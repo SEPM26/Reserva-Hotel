@@ -22,7 +22,7 @@ const firebaseConfig = {
     const habitacion = document.getElementById("habitacion").value;
     const fecha = document.getElementById("fecha").value;
     const hora = document.getElementById("hora").value;
-    const costo = document.getElementById("costo").value;
+    const precio = document.getElementById("precio").value;
 
   
     const nuevaReservaRef = database.ref("reservas").push();
@@ -31,7 +31,7 @@ const firebaseConfig = {
       habitacion: habitacion,
       fecha: fecha,
       hora: hora,
-      costo: costo
+      precio: precio
     }).then(() => {
       alert("Reserva guardada correctamente");
       document.getElementById("reserva-form").reset();

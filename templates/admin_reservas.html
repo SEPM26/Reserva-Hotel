@@ -45,6 +45,15 @@
     .btn-back {
       margin-bottom: 20px;
     }
+
+    .total-ingreso {
+      background-color: #f1f1f1;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -61,10 +70,17 @@
 
     <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary btn-back">⬅ Volver al Dashboard</a>
 
+    <!-- Mostrar el Ingreso Total del Día -->
+    <div class="total-ingreso">
+        <strong>Ingreso total del día:</strong> ${{ ingreso_total_dia if ingreso_total_dia is not none else 0 }}
+      </div>
+      
+
+
     <!-- Tabla de conteo por fecha -->
     <div class="card mb-4">
       <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">📅 Total de clientes por fecha</h5>
+        <h5 class="mb-0">📅 Total de los dias </h5>
       </div>
       <div class="card-body p-3">
         <table class="table table-bordered table-hover table-sm">
@@ -72,6 +88,7 @@
             <tr>
               <th>Fecha</th>
               <th>Total de Clientes</th>
+              <th>Ingreso por Fecha</th>  <!-- Nueva columna para Ingreso por Fecha -->
             </tr>
           </thead>
           <tbody>
@@ -79,6 +96,7 @@
               <tr>
                 <td>{{ fecha }}</td>
                 <td>{{ total }}</td>
+                <td>${{ ingreso_por_fecha[fecha] if fecha in ingreso_por_fecha else 0 }}</td> <!-- Mostrar ingreso por fecha -->
               </tr>
             {% endfor %}
           </tbody>
@@ -96,6 +114,7 @@
             <th>Fecha</th>
             <th>Habitación</th>
             <th>Hora</th>
+            <th>Precio</th>
           </tr>
         </thead>
         <tbody>
@@ -107,11 +126,12 @@
                 <td>{{ reserva['fecha'] }}</td>
                 <td>{{ reserva['habitacion'] }}</td>
                 <td>{{ reserva['hora'] }}</td>
+                <td>{{ reserva['precio'] }}</td>
               </tr>
             {% endfor %}
           {% else %}
             <tr>
-              <td colspan="5" class="text-center">No hay reservas registradas.</td>
+              <td colspan="6" class="text-center">No hay reservas registradas.</td>
             </tr>
           {% endif %}
         </tbody>
